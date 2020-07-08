@@ -32,7 +32,10 @@ while (( "$#" )); do
             shift
             ;;
         *)
-            [[ -z $TAG_VERSION ]] && TAG_VERSION="-t $IMAGE_NAME:$1"
+            if [[ -z $TAG_VERSION ]]; then
+                TAG_VERSION="-t $IMAGE_NAME:$1"
+                TAG="$1"
+            fi
             shift
             ;;
     esac
@@ -44,4 +47,4 @@ if [[ -z $TAG_VERSION ]]; then
     exit -1
 fi
 
-docker build $NO_CACHE $TAG_VERSION $TAG_LATEST .
+docker build --build-arg TAG=$TAG $NO_CACHE $TAG_VERSION $TAG_LATEST .
