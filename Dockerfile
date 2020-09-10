@@ -1,10 +1,10 @@
 ARG ECLIPSE_JDT_PATH=$WORKDIR/eclipse.jdt.ls
 ARG ECLIPSE_JDT_TARGET=$ECLIPSE_JDT_PATH/org.eclipse.jdt.ls.product/target/repository
 
-FROM openjdk:8-alpine AS build
+FROM openjdk:11 AS build
 
-RUN apk update
-RUN apk add git maven
+RUN apt-get update
+RUN apt-get install -y maven
 
 ARG ECLIPSE_JDT_PATH
 ARG ECLIPSE_JDT_TARGET
@@ -15,10 +15,7 @@ RUN git clone --branch $TAG https://github.com/eclipse/eclipse.jdt.ls $ECLIPSE_J
 WORKDIR $ECLIPSE_JDT_PATH
 RUN $ECLIPSE_JDT_PATH/mvnw clean verify
 
-FROM openjdk:14-alpine
-
-RUN apk update
-RUN apk add bash
+FROM openjdk:14
 
 ARG ECLIPSE_JDT_PATH
 ARG ECLIPSE_JDT_TARGET
