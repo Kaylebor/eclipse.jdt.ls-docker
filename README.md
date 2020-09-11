@@ -2,7 +2,7 @@ Dockerfile for building a Docker container of [eclipse/eclipse.jdt.ls](https://g
 
 [Built images are available here](https://hub.docker.com/r/kaylebor/eclipse.jdt.ls)
 
-Running on OpenJDK 14
+Running on OpenJDK 11
 
 Example run configuration:
 

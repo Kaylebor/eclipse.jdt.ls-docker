@@ -15,7 +15,9 @@ RUN git clone --branch $TAG https://github.com/eclipse/eclipse.jdt.ls $ECLIPSE_J
 WORKDIR $ECLIPSE_JDT_PATH
 RUN $ECLIPSE_JDT_PATH/mvnw clean verify
 
-FROM openjdk:14
+FROM openjdk:11
+
+RUN apt-get update && apt-get upgrade -y
 
 ARG ECLIPSE_JDT_PATH
 ARG ECLIPSE_JDT_TARGET
