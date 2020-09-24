@@ -1,4 +1,4 @@
-Dockerfile for building a Docker container of [eclipse/eclipse.jdt.ls](https://github.com/eclipse/eclipse.jdt.ls), based on [Alpine Linux](https://hub.docker.com/_/openjdk)
+Dockerfile for building a Docker container of [eclipse/eclipse.jdt.ls](https://github.com/eclipse/eclipse.jdt.ls)
 
 [Built images are available here](https://hub.docker.com/r/kaylebor/eclipse.jdt.ls)
 
